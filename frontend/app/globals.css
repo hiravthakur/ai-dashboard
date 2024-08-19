@@ -23,3 +23,11 @@ html, body {
   font-weight: 600; /* Adjust font weight as needed */
   margin: 0; /* Remove default margin from <h1> */
 }
+
+.centeredDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

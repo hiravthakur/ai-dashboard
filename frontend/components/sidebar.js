@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -10,6 +12,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Card from '@mui/material/Card';
+import OutlinedCard from './cards';
+import { useRouter } from 'next/navigation';
+
 const drawerWidth = 240;
 
 const routes = [{
@@ -42,7 +49,37 @@ const routes = [{
 },
 ]
 
+const tools = [
+{
+label: "Chat",
+href: "/chat",
+},
+{
+label: "Image Generation",
+href: "/image",
+},
+{
+label: "Video Generation",
+href: "/video",
+},
+{
+label: "Music Generation",
+href: "/music",
+},
+{
+label: "Code Generation",
+href: "/code",
+},
+{
+label: "Configurations",
+href: "/config",
+},
+]
+
 export default function PermanentDrawerLeft() {
+  //const pathname = usePathname();
+  const router = useRouter();
+  
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
@@ -92,6 +129,23 @@ export default function PermanentDrawerLeft() {
         sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
       >
         <Toolbar />
+        <div className="centeredDiv">
+      <h2>
+        Welcome to DashBoard Now
+      </h2>
+      <p>
+        An intuitive way to use and manage your AI Agents
+      </p>
+    </div>
+    <div>
+      {tools.map((tool) => (
+        <OutlinedCard key={tool.label} title={tool.label}  onClick={() => router.push(tool.href)}>
+
+      </OutlinedCard>
+      
+      
+      ) ) }
+    </div>
       </Box>
     </Box>
   );
