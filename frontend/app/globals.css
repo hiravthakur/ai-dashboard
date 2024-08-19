@@ -1,3 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+
 html, body {
   height: 100%;
+}
+
+
+.link {
+  text-decoration: none; /* Removes the underline */
+  color: white; /* Inherits color from parent or defaults to black */
+}
+
+.link2 {
+  text-decoration: none; /* Removes the underline */
+  color: rgb(49, 5, 245); /* Inherits color from parent or defaults to black */
+  font-family: 'Montserrat'
+}
+
+.title {
+  font-family: 'Montserrat', sans-serif; /* Apply Montserrat font */
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-weight: 600; /* Adjust font weight as needed */
+  margin: 0; /* Remove default margin from <h1> */
 }
