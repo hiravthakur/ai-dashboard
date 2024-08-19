@@ -70,10 +70,6 @@ href: "/music",
 label: "Code Generation",
 href: "/code",
 },
-{
-label: "Configurations",
-href: "/config",
-},
 ]
 
 export default function PermanentDrawerLeft() {
