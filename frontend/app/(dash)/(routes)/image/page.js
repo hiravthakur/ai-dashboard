@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useState } from "react";
 import { Container, TextField, Button, Grid, Typography } from '@mui/material';
 
+//renders image generation prompt page
 export default function ImagePage() {
 
     const [prompt, setPrompt] = useState('');
@@ -13,6 +14,7 @@ export default function ImagePage() {
         setPrompt(event.target.value);
     };
 
+    //attempts to contact OpenAI API through backend and then process response
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

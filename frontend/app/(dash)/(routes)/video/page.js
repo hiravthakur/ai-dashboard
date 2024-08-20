@@ -4,6 +4,8 @@ import * as React from 'react';
 import { useState } from "react";
 import { Container, TextField, Button, Grid, Typography } from '@mui/material';
 
+
+//render video generation page
 export default function VideoPage() {
 
     const [prompt, setPrompt] = useState('');
@@ -13,6 +15,7 @@ export default function VideoPage() {
         setPrompt(event.target.value);
     };
 
+    //attempts to contact Replicate API through backend and then process response
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

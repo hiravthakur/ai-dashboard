@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useState } from "react";
 import { Container, TextField, Button, Grid, Typography } from '@mui/material';
 
+//renders music generation prompt page
 export default function MusicPage() {
 
     const [prompt, setPrompt] = useState('');
@@ -13,6 +14,7 @@ export default function MusicPage() {
         setPrompt(event.target.value);
     };
 
+//attempts to contact Replicate API through backend and then process response
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

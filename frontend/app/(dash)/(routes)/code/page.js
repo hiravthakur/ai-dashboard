@@ -5,7 +5,7 @@ import { TextField, Button, Container, Typography, Grid } from '@mui/material';
 import { useState } from "react";
 
 
-
+//renders code generation prompt page
 export default function CodePage() {
     const [codeInput, setCodeInput] = useState('');
     const [generatedCode, setGeneratedCode] = useState('');
@@ -17,6 +17,7 @@ export default function CodePage() {
     //handle api stuff
     const handleSubmit = async (event) => {
         event.preventDefault();
+        //attempts to contact OpenAI API through backend and then process response
         try {
             const response = await fetch('http://localhost:5000/api/code', {
                 method: 'POST',
@@ -31,7 +32,7 @@ export default function CodePage() {
             }
 
             const data = await response.json();
-            setGeneratedCode(data.code || 'No code generated'); // Ensure `data.code` is handled properly
+            setGeneratedCode(data.code || 'No code generated');
         } catch (error) {
             console.error('Error sending code generation request:', error);
         }

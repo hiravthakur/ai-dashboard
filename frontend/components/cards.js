@@ -1,16 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Link from 'next/link';
 
 
 
 
-
+//A card that holds options for the user to interact with
 export default function OutlinedCard({title, onClick}) {
     
   return (
@@ -22,7 +18,7 @@ export default function OutlinedCard({title, onClick}) {
         boxShadow: 3, 
       },
     }}
-    onClick={onClick}
+    onClick={onClick} //route information is passed through prop
   >
     <Card variant="outlined">
         <Typography sx={{ fontSize: 15 }} color="text.secondary" fontWeight={"bold"} gutterBottom>

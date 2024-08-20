@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-
+//renders chat generation prompt page, allows user to have complete conversation with chatGPT
 export default function ChatPage() {
     const [messages, setMessages] = React.useState([]);
     const [input, setInput] = React.useState('');
@@ -16,6 +16,7 @@ export default function ChatPage() {
             setInput('');
 
             //API response here
+            //attempts to contact OpenAI API through backend and then process response
             try {
                 const response = await fetch('http://localhost:5000/api/chatgpt', {
                     method: 'POST',

@@ -9,6 +9,7 @@ export default function LandingPage() {
     }
 
     return (
+        //a basic landing page that allows users to move onto the dashboard (add login functionality is on list of things to do)
         <div style={{ textAlign: 'center', padding: '50px' }}>
         <h1>Welcome to DashboardNow</h1>
         <p>An AI development challenge developed by Hirav Thakur. Click the button below to enter the dashboard.</p>

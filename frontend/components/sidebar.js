@@ -12,13 +12,12 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import Card from '@mui/material/Card';
 import OutlinedCard from './cards';
 import { useRouter } from 'next/navigation';
 
 const drawerWidth = 240;
 
+//a list of routes for sidebar navigation
 const routes = [
 {
   label: "Chat",
@@ -46,6 +45,7 @@ const routes = [
 },
 ]
 
+//a list of items to be put in cards for the dashboard
 const tools = [
 {
 label: "Chat",
@@ -69,8 +69,8 @@ href: "/code",
 },
 ]
 
+//A sidebar set to remain on the left side of the window
 export default function PermanentDrawerLeft() {
-  //const pathname = usePathname();
   const router = useRouter();
   
   return (
