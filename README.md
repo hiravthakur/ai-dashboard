@@ -5,3 +5,5 @@ DashboardNow is an AI Dashboard that lets users chat to GPT 3.5 Turbo, have code
 ----------------------------------------------------------------------------------------------------------------------------
 
 Made by Hirav Thakur. University of Waterloo. Bachelor of Computer Science, Honours, Co-op.
+
+.env file removed for API key security reasons.
