@@ -39,7 +39,7 @@ app.post('/api/chatgpt', async (req, res) => {
   });
 
   app.post('/api/code', async (req, res) => {
-    const { code } = req.body;  // Changed from message to code
+    const { code } = req.body; 
   
     try {
       const response = await axios.post(
@@ -58,10 +58,41 @@ app.post('/api/chatgpt', async (req, res) => {
       );
   
       const codeResponse = response.data.choices[0].message.content;
-      res.json({ code: codeResponse });  // Changed from reply to code
+      res.json({ code: codeResponse });  
     } catch (error) {
       console.error('Error communicating with OpenAI API:', error);
       res.status(500).json({ error: 'Failed to get response from ChatGPT' });
+    }
+});
+
+app.post('/api/dalle', async (req, res) => {
+    const { prompt } = req.body;
+    try {
+        const response = await axios.post(
+            'https://api.openai.com/v1/images/generations',
+            {
+                model: "dall-e-3",
+                prompt: prompt,
+                n: 1,
+                size: "1024x1024",
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                    'Content-Type': 'application/json',
+                },
+            }
+        );
+
+        if (response.data && response.data.data && response.data.data[0]) {
+            const imageUrl = response.data.data[0].url;
+            res.json({ imageUrl });
+        } else {
+            throw new Error('Something is wrong with DALL-E');
+        }
+    } catch (error) {
+        console.error('Error communicating with OpenAI DALL-E:', error.message);
+        res.status(500).json({ error: 'Failed to generate image' });
     }
 });
 
