@@ -19,10 +19,7 @@ import { useRouter } from 'next/navigation';
 
 const drawerWidth = 240;
 
-const routes = [{
-    label: "Dashboard",
-    href: "/dashboard",
-},
+const routes = [
 {
   label: "Chat",
   href: "/chat",
@@ -127,7 +124,7 @@ export default function PermanentDrawerLeft() {
         <Toolbar />
         <div className="centeredDiv">
       <h2>
-        Welcome to DashBoard Now
+        Welcome to DashBoardNow
       </h2>
       <p>
         An intuitive way to use and manage your AI Agents
