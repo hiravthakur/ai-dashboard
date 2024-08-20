@@ -10,12 +10,31 @@ export default function ChatPage() {
     const [messages, setMessages] = React.useState([]);
     const [input, setInput] = React.useState('');
 
-    const handleSend = () => {
+    const handleSend = async () => {
         if (input.trim() != '') {
             setMessages([...messages, {text: input, sender: 'user'}]);
             setInput('');
 
             //API response here
+            try {
+                const response = await fetch('http://localhost:5000/api/chatgpt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify({message: input}),
+                });
+                if (!response.ok) {
+                    throw new Error('Something is wrong with the network response');
+                }
+                const data = await response.json();
+
+                const gptReply = { text: data.reply, sender:'GPT'};
+                setMessages((prevMessages) => [...prevMessages, gptReply]);
+            }
+            catch (error) {
+                console.error('Error sending message:', error);
+            }
 
         }
     }
